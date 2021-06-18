@@ -106,3 +106,36 @@ console.log(heading);
 newSortedString.forEach(element => {
     console.log(`\t ${element}`);
 });
+
+
+//Taking input from user
+function promptFunction(){
+
+    let value = prompt("Please enter a numeric value");
+    let x=false;
+    sortedArray.forEach(element =>{
+        
+        if(element["52-week-high"]>value){
+            console.log(`\n${toString(element)}`); 
+            x=true;
+        }
+    });
+
+    if(!x){
+        console.log(`There are no such value with 52-week-high ${value}`);
+    }
+
+}
+
+promptFunction()
+
+//calulating average values
+
+let highAvg, lowAvg, sumHigh=0, sumLow=0, size=0;
+data.forEach(element =>{
+    sumHigh+=element["52-week-high"];
+    sumLow+=element["52-week-low"];
+    size+=1;
+});
+
+console.log(`\t\nAVG.High: ${sumHigh/size} \t\nAVG.Low: ${sumLow/size}`)
